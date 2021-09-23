@@ -1,5 +1,26 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // Write your algorithm here 
+
+  // Brute force, O(n^2) Time Complexity - polynomial order
+
+  // for (let i = 0; i < array.length; i++) {
+  //   for (let j = 0; j < i; j++) {
+  //     if (array[i] + array[j] === target) return true;
+  //   }
+  // }
+  // return false;
+
+
+  // Alternative Single pass hash algo. Time Complexity: O(n) / Space Complexity: At least n space
+  let numberStore = {};
+
+  for (let i = 0; i < array.length; i++) {
+    if (numberStore[target - array[i]]) {
+      return true;
+    }
+    numberStore[array[i]] = true;
+  }
+  return false;
 }
 
 /* 
@@ -8,6 +29,7 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+
 */
 
 /*
